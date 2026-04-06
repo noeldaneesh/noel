@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pathanamthitta - Simple</title>
+    <style>
+        /* Internal CSS for a clean look */
+        body {
+            background-color: #f0fdf4; /* Very light green */
+            color: #166534; /* Deep green text */
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #bbf7d0;
+            display: inline-block;
+            max-width: 500px;
+        }
+        img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        a {
+            color: #15803d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Pathanamthitta</h1>
+        <p>The Heart of Sacred Rivers and Green Hills.</p>
+
+        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=500" alt="Kerala Greenery">
+
+        <h3>Top Spots:</h3>
+        <ul style="text-align: left; display: inline-block;">
+            <li>Gavi Eco-Tourism</li>
+            <li>Konni Elephant Camp</li>
+            <li>Aranmula Mirror Works</li>
+        </ul>
+
+        <br><br>
+        <a href="https://en.wikipedia.org/wiki/Pathanamthitta_district">Read More &rarr;</a>
+    </div>
+
+</body>
+</html>
