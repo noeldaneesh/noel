@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amal Jyothi College of Engineering</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
+        header { background: #800000; color: white; padding: 10px; text-align: center; }
+        nav { background: #f4f4f4; padding: 10px; margin-bottom: 20px; border-bottom: 2px solid #ddd; }
+        h2 { color: #800000; border-bottom: 1px solid #ccc; }
+        section { margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Amal Jyothi College of Engineering</h1>
+    <p>Kanjirappally, Kerala</p>
+</header>
+
+<nav>
+    <strong>Quick Links:</strong> 
+    <a href="#departments">Departments</a> | 
+    <a href="#courses">Engineering Courses</a> | 
+    <a href="#library">Library Services</a> | 
+    <a href="https://www.ajce.in" target="_blank">Official Website</a>
+</nav>
+
+<section id="departments">
+    <h2>Academic Departments</h2>
+    <ul>
+        <li>Department of Computer Science & Engineering</li>
+        <li>Department of Electronics & Communication</li>
+        <li>Department of Civil Engineering</li>
+        <li>Department of Mechanical Engineering</li>
+        <li>Department of Chemical Engineering</li>
+    </ul>
+</section>
+
+<section id="courses">
+    <h2>Engineering Courses Offered</h2>
+    <p>We offer the following undergraduate programs:</p>
+    <ol>
+        <li>B.Tech in Artificial Intelligence</li>
+        <li>B.Tech in Data Science</li>
+        <li>B.Tech in Metallurgy</li>
+        <li>B.Tech in Food Technology</li>
+        <li>B.Tech in Electrical & Electronics</li>
+    </ol>
+</section>
+
+<section id="library">
+    <h2>Central Library</h2>
+    <p>The AJCE Central Library is a hub of knowledge. Key features include:</p>
+    <ul>
+        <li>Over 50,000 Volumes of Books</li>
+        <li>Digital Library with IEEE access</li>
+        <li>Separate Reading Rooms for Research</li>
+        <li><a href="https://ajce.in/library" target="_blank">Access Online Public Access Catalog (OPAC)</a></li>
+    </ul>
+</section>
+
+
+</body>
+</html>
