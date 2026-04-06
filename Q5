@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+    <style>
+        /* This sets the look of the whole page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The main white box containing your posts */
+        .blog-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Styling the titles */
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { color: #e67e22; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+
+        /* Styling the blog posts */
+        .post { margin-bottom: 40px; }
+        .date { color: #888; font-size: 14px; }
+
+        /* Simple Link button */
+        .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-container">
+        <h1>title</h1>
+        <p style="text-align: center;">heading for the blog!</p>
+        <hr>
+
+        <div class="post">
+            <h2>blog name</h2>
+            <p class="date">Posted on April 6, 2026</p>
+            <p>content fo the blog</p>
+            <a href="#" class="read-more">Read Full Post</a>
+        </div>
+
+        <div class="post">
+            <h2>name of blog</h2>
+            <p class="date">Posted on April 5, 2026</p>
+            <p>content of blog!</p>
+            <a href="#" class="read-more">Read Full Post</a>
+        </div>
+
+        </div>
+
+</body>
+</html>
