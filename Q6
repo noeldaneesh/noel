@@ -1,0 +1,17 @@
+
+let length = prompt("Enter the length of the rectangle:");
+let width = prompt("Enter the width of the rectangle:");
+
+
+length = parseFloat(length);
+width = parseFloat(width);
+
+if (isNaN(length) || isNaN(width)) {
+    console.log("Please enter valid numeric values.");
+    alert("Please enter valid numeric values.");
+} else {
+    let area = length * width;
+
+    console.log("The area of the rectangle is: " + area);
+    alert("The area of the rectangle is: " + area);
+}
