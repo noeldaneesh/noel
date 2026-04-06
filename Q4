@@ -3,7 +3,7 @@
 <head>
     <title>Pathanamthitta - Simple</title>
     <style>
-        /* Internal CSS for a clean look */
+       
         body {
             background-color: #f0fdf4; /* Very light green */
             color: #166534; /* Deep green text */
