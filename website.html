@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pathanamthitta Roastery | Interactive Menu</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Setup */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf7f2;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .menu-board {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .menu-header {
+            background-color: #2c3e2e;
+            color: #f4d3a0;
+            text-align: center;
+            padding: 40px 20px 25px 20px;
+        }
+
+        .menu-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        /* Filter Button Container */
+        .filter-container {
+            background-color: #2c3e2e;
+            text-align: center;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Filter Buttons Style */
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #f4d3a0;
+            color: #f4d3a0;
+            padding: 8px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #f4d3a0;
+            color: #2c3e2e;
+        }
+
+        /* Grid Layout for dynamic reflowing */
+        .menu-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        /* Individual Menu Item Card */
+        .menu-item {
+            background: #fff;
+            border: 1px solid #f0eae1;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #222;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #d17a22;
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
+
+        .item-action {
+            display: flex;
+            align-items: center;
+        }
+
+        .item-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Interactive Action Button (Add to Order) */
+        .add-btn {
+            background-color: #2c3e2e;
+            color: #ffffff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .add-btn:hover {
+            background-color: #d17a22;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-left: 8px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .menu-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            .filter-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-board">
+        
+        <!-- Header Section -->
+        <div class="menu-header">
+            <h1>The Pathanamthitta Roastery</h1>
+            <p>Fresh Brews & Wholesome Eats</p>
+        </div>
+
+        <!-- Clickable Category Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterMenu('all', this)">All</button>
+            <button class="filter-btn" onclick="filterMenu('drinks', this)">Brews</button>
+            <button class="filter-btn" onclick="filterMenu('food', this)">Eats</button>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div class="menu-content">
+            
+            <!-- Item 1 (Drinks) -->
+            <div class="menu-item" data-category="drinks">
+                <div class="item-header">
+                    <span class="item-name">Classic Filter Coffee</span>
+                    <div class="item-action">
+                        <span class="item-price">₹60</span>
+                        <button class="add-btn" onclick="addToOrder('Classic Filter Coffee')">Add +</button>
+                    </div>
+                </div>
+                <p class="item-description">Traditional South Indian coffee brewed slowly and frothed to perfection.</p>
+            </div>
+
+            <!-- Item 2 (Drinks) -->
+            <div class="menu-item" data-category="drinks">
+                <div class="item-header">
+                    <span class="item-name">Cardamom Spiced Chai</span>
+                    <div class="item-action">
+                        <span class="item-price">₹50</span>
+                        <button class="add-btn" onclick="addToOrder('Cardamom Spiced Chai')">Add +</button>
+                    </div>
+                </div>
+                <p class="item-description">Rich black tea brewed with fresh cardamom pods and whole milk.</p>
+            </div>
+
+            <!-- Item 3 (Drinks) -->
+            <div class="menu-item" data-category="drinks">
+                <div class="item-header">
+                    <span class="item-name">Artisan Cappuccino</span>
+                    <div class="item-action">
+                        <span class="item-price">₹140</span>
+                        <button class="add-btn" onclick="addToOrder('Artisan Cappuccino')">Add +</button>
+                    </div>
+                </div>
+                <p class="item-description">Single-origin espresso topped with perfectly textured milk foam.</p>
+            </div>
+
+            <!-- Item 4 (Food) -->
+            <div class="menu-item" data-category="food">
+                <div class="item-header">
+                    <span class="item-name">Nutrient Bowl <span class="badge">Vegan</span></span>
+                    <div class="item-action">
+                        <span class="item-price">₹180</span>
+                        <button class="add-btn" onclick="addToOrder('Nutrient Bowl')">Add +</button>
+                    </div>
+                </div>
+                <p class="item-description">Overnight oats topped with a blend of soaked almonds, walnuts, and flax seeds.</p>
+            </div>
+
+            <!-- Item 5 (Food) -->
+            <div class="menu-item" data-category="food">
+                <div class="item-header">
+                    <span class="item-name">Avocado Toast</span>
+                    <div class="item-action">
+                        <span class="item-price">₹220</span>
+                        <button class="add-btn" onclick="addToOrder('Avocado Toast')">Add +</button>
+                    </div>
+                </div>
+                <p class="item-description">Smashed avocado on sourdough with a sprinkle of chili flakes and microgreens.</p>
+            </div>
+
+            <!-- Item 6 (Food) -->
+            <div class="menu-item" data-category="food">
+                <div class="item-header">
+                    <span class="item-name">Fresh Fruit Parfait</span>
+                    <div class="item-action">
+                        <span class="item-price">₹160</span>
+                        <button class="add-btn" onclick="addToOrder('Fresh Fruit Parfait')">Add +</button>
+                    </div>
+                </div>
+                <p class="item-description">Layers of natural yogurt, seasonal local fruits, and house-made granola.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript Logic for Click Functionality -->
+    <script>
+        // Function to filter categories
+        function filterMenu(category, buttonElement) {
+            // 1. Manage active state styling on tabs
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            // 2. Hide or show menu items based on data-category attribute
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Function for individual item buttons
+        function addToOrder(itemName) {
+            alert(itemName + " has been added to your order!");
+        }
+    </script>
+
+</body>
+</html>
